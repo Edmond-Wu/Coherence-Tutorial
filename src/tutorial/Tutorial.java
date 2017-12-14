@@ -12,7 +12,12 @@ public class Tutorial {
 		NamedCache cache = CacheFactory.getCache("hello-example");
 		
 		cache.put(key, value);
+		cache.put("k2", "Second key");
 		System.out.println((String)cache.get(key));
+		System.out.println((String)cache.get("k2"));
+		
+		//testing invalid key
+		System.out.println((String)cache.get("k3"));
 		
 		CacheFactory.shutdown();
 	}
