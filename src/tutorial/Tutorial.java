@@ -5,19 +5,19 @@ import com.tangosol.net.NamedCache;
 
 public class Tutorial {
 	public static void main(String[] args) {
-		String key = "k1";
-		String value = "Hello world!";
-		
 		CacheFactory.ensureCluster();
-		NamedCache cache = CacheFactory.getCache("hello-example");
+		NamedCache cache = CacheFactory.getCache("my-cache");
 		
-		cache.put(key, value);
-		cache.put("k2", "Second key");
-		System.out.println((String)cache.get(key));
-		System.out.println((String)cache.get("k2"));
+		for (int i = 0; i < 10; i++) {
+			String key = "k" + i;
+			String val = "num" + i;
+			cache.put(key, val);
+		}
 		
-		//testing invalid key
-		System.out.println((String)cache.get("k3"));
+		for (Object k : cache.keySet()) {
+			String keyVal = (String)k + ": " + (String)cache.get(k);
+			System.out.println(keyVal);
+		}
 		
 		CacheFactory.shutdown();
 	}
