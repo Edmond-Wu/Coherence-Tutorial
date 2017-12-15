@@ -3,8 +3,8 @@ package tutorial;
 import com.tangosol.net.CacheFactory;
 import com.tangosol.net.NamedCache;
 
-import objects.Address;
-import objects.Person;
+import models.Address;
+import models.Person;
 
 public class TutorialWithObjects {
 	public static void main(String[] args) {
