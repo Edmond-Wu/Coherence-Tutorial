@@ -112,14 +112,18 @@ public class Address implements PortableObject {
 	}
 
 	@Override
-	public void readExternal(PofReader arg0) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void readExternal(PofReader reader) throws IOException {
+		setStreetAddress(reader.readString(0));
+		setCity(reader.readString(1));
+		setState(reader.readString(2));
+		setZipcode(reader.readString(3));
 	}
 
 	@Override
-	public void writeExternal(PofWriter arg0) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void writeExternal(PofWriter writer) throws IOException {
+		writer.writeString(0, streetAddress);
+		writer.writeString(1, city);
+		writer.writeString(2, state);
+		writer.writeString(3, zipcode);
 	}
 }

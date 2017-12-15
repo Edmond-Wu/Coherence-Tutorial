@@ -117,9 +117,9 @@ public class Person implements PortableObject {
 
 	@Override
 	public void writeExternal(PofWriter writer) throws IOException {
-		writer.writeString(0, this.firstName);
-		writer.writeString(1, this.lastName);
-		writer.writeInt(2, this.salary);
-		writer.writeObject(3, this.address);
+		writer.writeString(0, firstName);
+		writer.writeString(1, lastName);
+		writer.writeInt(2, salary);
+		writer.writeObject(3, address);
 	}
 }
